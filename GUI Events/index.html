@@ -21,12 +21,14 @@
 <body>
     <ul id="first"></ul>
     <script>
+        //function code
         function addMessage(element, message) {
             var messageElement = document.createElement("li");
             messageElement.textContent = message;
             element.appendChild(messageElement);
         }
-
+        
+        //global code
         var first = document.getElementById("first");
         addMessage(first, "Page Loading...");
     </script>
