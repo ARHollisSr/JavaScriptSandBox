@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Call Back</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.6.2.css">
+    <script src="https://code.jquery.com/qunit/qunit-2.6.2.js"></script>
+    <style> 
+        body {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    var text = "Callback Succeeded";
+    report("Prior to defining the function");
+
+    function simpleCallBack(myCallBack) {
+        report("Inside simple call back");
+        return simpleCallBack();
+    }
+
+    function getText() {
+        report ("Inside getText func");
+        return text;
+    }
+
+    report("Before executing all calls");
+    assert.equal(simpleCallBack(getText),text);
+    assert(simpleCallBack(getText) === text,
+        "Simple Cal Back works " + text);
+    report("After all call executions");
+    </script>
+</body>
+</html>
