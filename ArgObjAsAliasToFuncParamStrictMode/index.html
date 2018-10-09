@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Argument object aliases function parameters Strict Mode</title>
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <section>
+        <script>
+            "use strict"; //enable strict mode
+            function infiltrate(person) {
+                assert(person === 'gardener',
+                    'The person is a gardener');
+                assert(arguments[0] === 'gardener',
+                    'The first argument is a gardener');
+
+                //because of strict mode the first argument value changes
+                //the person parameter however stays the same, gardener
+                arguments[0] = 'ninja';
+
+                assert(person === 'ninja',
+                    'The person is a ninja now');
+                assert(arguments[0] === 'ninja',
+                    'The first argument is ninja');
+
+                assert(person === 'gardener',
+                    'The person is still a gardener');
+            }
+            infiltrate("gardener");
+        </script>
+    </section>
+
+</body>
+
+</html>
