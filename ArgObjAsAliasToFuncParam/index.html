@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Argument object aliases function parameters</title>
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <section>
+        <!-- Because the arguments object is an alias for the function params, if you
+            change the arg object the change is also relflected in the matching func param -->
+        <script>
+            
+            function infiltrate(person) {
+                assert(person === 'gardener',
+                    'The person is a gardener');
+                assert(arguments[0] === 'gardener',
+                    'The first argument is a gardener');
+
+                arguments[0] = 'ninja';
+
+                assert(person === 'ninja',
+                    'The person is a ninja now');
+                assert(arguments[0] === 'ninja',
+                    'The first argument is ninja');
+
+                person = 'gardener';
+                assert(person === 'gardener',
+                    'The person is a gardener once more');
+                assert(arguments[0] === 'gardener',
+                    'The first argument is a gardener again');
+            }
+            infiltrate("gardener");
+
+        </script>
+    </section>
+
+</body>
+
+</html>
