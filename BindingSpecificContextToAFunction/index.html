@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binding a specific context to a button</title>
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <button id="test">Click Me!</button>
+    <script>
+        function Button() {
+            this.clicked = false;
+            this.click = function() {
+                this.clicked = true;
+                assert(button.clicked, "The button has been clicked");
+            };
+        }
+        var button = new Button();
+        var elm = document.addEventListener("click", button.click);        
+    </script>
+</body>
+
+</html>
