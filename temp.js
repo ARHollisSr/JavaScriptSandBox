@@ -1,22 +1,10 @@
-function whatIsInAName(collection, source) {
-    // What's in a name?
-    var arr = [];
-    // Only change code below this line
-    let propToCompare = Object.keys(source);
-    let getPropNames = Object.getOwnPropertyNames(source);
-   
-    for (let i=0; i < collection.length; i++)
-    {
-        for(var x in collection[i])
-        {
-            collection[i][x];
-        }
-    }
-      // do something with your new variables
-    
+const fibanacci = [];
+fibanacci[1] = 1;
+fibanacci[2] = 1;
 
-    // Only change code above this line
-    return arr;
-  }
-  whatIsInAName([{ "apple": 1 }, { "apple": 1 }, { "apple": 1, "bat": 2 }], { "apple": 1 })
-  //whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { //first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+for (let i=3; i < 20; i++) {
+    fibanacci[i] = fibanacci[i - 1] + fibanacci[i - 2];
+}
+
+for (let i = 1; i < fibanacci.length; i++)
+    console.log(fibanacci[i]);
