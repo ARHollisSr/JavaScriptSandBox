@@ -1,0 +1,27 @@
+Setting up Babel:
+$ mkdir project_name
+$ cd project_name
+$ npm init -y
+
+$ npm install babel-cli --save-dev
+
+Create a .babelrc file
+{
+  "presets": ["es2015"]
+}
+
+$ npm install babel-preset-es2015 --save-dev
+//use if you including a stage
+$ npm install babel-preset-stage-0 --save-dev
+//use if you are using stage 0
+$ npm install babel-plugin-transform-decorators-legacy --save-dev
+
+
+
+NOTE: Project Structure
+project_name
+|_src
+  |_index.js
+
+
+$ babel src -d dist
