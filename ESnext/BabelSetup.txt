@@ -1,22 +1,40 @@
-Setting up Babel:
+Setting up Babel and Browserify:
 $ mkdir project_name
 $ cd project_name
 $ npm init -y
+$ npm install babelify --save-dev
+$ nmp install --save-dev @babel/cli
+$ npm install --save-dev @babel/core
+$ npm install --save-dev @babel/preset-env
 
-$ npm install babel-cli --save-dev
+//version 7 way of adding Stage 0
+$ npm install --save-dev @babel/plugin-proposal-function-bind
 
-Create a .babelrc file
+//version 7 way of adding legacy decorators
+$ npm install --save-dev @babel/plugin-proposal-decorators
+
+Create a .bablerc file in the root of your project.
+
 {
-  "presets": ["es2015"]
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-function-bind",
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ]
+    ],
+    "sourceMaps": "inline"
 }
 
-$ npm install babel-preset-es2015 --save-dev
-//use if you including a stage
-$ npm install babel-preset-stage-0 --save-dev
-//use if you are using stage 0
-$ npm install babel-plugin-transform-decorators-legacy --save-dev
-
-
+Resources:
+https://www.npmjs.com/
+https://babeljs.io/docs/en/v7-migration
+https://github.com/babel/babel/tree/master/packages/babel-preset-stage-0#babelpreset-stag
 
 NOTE: Project Structure
 project_name
