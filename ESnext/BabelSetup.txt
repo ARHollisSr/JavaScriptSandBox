@@ -31,6 +31,11 @@ Create a .bablerc file in the root of your project.
     "sourceMaps": "inline"
 }
 
+Add this to the script section of package.json
+"babel": "babel src –d dist"
+//To run
+$ npm run babel
+
 Resources:
 https://www.npmjs.com/
 https://babeljs.io/docs/en/v7-migration
