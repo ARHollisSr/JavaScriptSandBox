@@ -1,23 +1,14 @@
-function filteredArray(arr, elem) {
-  let newArr = [];
-  // change code below this line
-  for (let i=0; i < arr.length; i++)
-  {
-    for (let j=0; j <arr[i].length; j++)
-    {
-      if (arr[i][j]!= (elem))
-      {
-        break;
-      }
-      else
-      {
-        newArr.push(arr[i][j]);
-      }
-    }
+function reverseString(str) {
+  let newString = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
   }
-  // change code above this line
-  return newArr;
+  return newString;
 }
 
-// change code here to test different cases:
-console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+function reverseString2(str) {
+  return str.split('').reverse().join('');
+}
+
+console.log(reverseString('hello'));
+console.log(reverseString2('hello2'));
