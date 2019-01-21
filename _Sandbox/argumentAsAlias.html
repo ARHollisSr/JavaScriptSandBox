@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <script>
+        "use strict" // prevents aliasing of arguments 
+        function infiltrate(person) {
+            assert(person === 'gardener', 'The person is a gardener');
+            assert(arguments[0] === 'gardener', 'The fist argument is a gardener');
+
+            arguments[0] = 'ninja';
+
+            assert(person === 'ninja', 'The person is a ninja');
+            assert(arguments[0] === 'ninja', 'The fist argument is a ninja');
+            
+            person = 'gardener';
+
+            assert(person === 'gardener', 'The person is a gardener');
+            assert(arguments[0] === 'gardener', 'The fist argument is a gardener');
+        }
+        infiltrate("gardener");
+
+    </script>
+
+</body>
+
+</html>
