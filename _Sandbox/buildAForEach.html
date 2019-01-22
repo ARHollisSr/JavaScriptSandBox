@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <script>
+        function forEach(list, callback) {//collection to be iterated over and callback function
+            for (var n = 0; n < list.length; n++) {
+                callback.call(list[n], n); //current iteration item is the func context
+            }
+        }
+        var weapons =
+            [
+                { type: 'shuriken' },
+                { type: 'katana' },
+                { type: 'nunchucks' },
+            ];
+
+        forEach(weapons, function (index) {
+            assert(this === weapons[index], "Got the expected value of " + weapons[index].type);
+        })
+    </script>
+</body>
+
+</html>
