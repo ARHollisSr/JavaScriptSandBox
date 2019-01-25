@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+<body>
+    <script> 
+        var outerValue = "samurai";
+        var later;
+
+        function outerFunction() {
+            var innerValue = "ninja";
+
+            function innerFunction() {
+                assert(outerValue === "samurai", "I can see the samurai");
+                assert(innerValue === "ninja", "I can see the ninja");                
+            }
+            later = innerFunction;            
+        }
+        outerFunction();
+        later();
+    </script>
+</body>
+</html>
