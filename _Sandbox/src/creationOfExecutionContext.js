@@ -7,4 +7,4 @@ function report(message) {
 }
 
 skulk("Kuma");
-skulk("Yoshi");
+skulk("Yoshi");0000
