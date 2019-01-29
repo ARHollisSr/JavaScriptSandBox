@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+<body>
+    <div id="subTree">
+        <form>
+            <input type="text" />
+        </form>
+        <p>Paragraph</p>
+        <span>Span</span>
+    </div>
+    <script>
+        function* DomTraversal(element) {
+            yield element;
+            element = element.firstElementChild;
+            while (element) {
+                yield* DomTraversal(element);
+                element = element.nextElementSibling;
+            }
+        }
+        const subTree = document.getElementById("subTree");
+        for (let element of DomTraversal(subTree)) {
+            assert(element !== null, element.nodeName);
+        }
+    </script>
+</body>
+</html>
