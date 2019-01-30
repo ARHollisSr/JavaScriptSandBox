@@ -15,7 +15,7 @@
             const imposter = yield ("Hattori " + action);
 
             assert(imposter === "Hanzo", "The generator has been infiltrated");
-            yield ("Yoshi (" + imposter + " ) " + action);
+            yield ("Yoshi (" + imposter + ") " + action);
         }
         const ninjaIterator = NinjaGenerator("skulk");
         const result1 = ninjaIterator.next();
