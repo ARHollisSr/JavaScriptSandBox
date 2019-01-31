@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <script>
+        function getJSON(url) {
+            return new Promise(function (resolve, reject) {
+                const request = new XMLHttpRequest();
+
+                request.open("GET", url);
+
+                request.onload = function () {
+                    try {
+                        if (this.status == 200) {
+                            resolve(JSON.parse(this.response));
+                        }
+                        else {
+                            reject(this.status + " " + this.statusText);
+                        }
+                    }
+                    catch (e) {
+                        reject(e.message);
+                    }
+                };
+
+                request.onerror = function () {
+                    reject(this.status + " " + this.statusText);
+                };
+                
+                request.send();
+            });
+        }
+
+        getJSON("data/ninjas.json").then(ninjas => {
+            assert(ninjas !== null, "Ninjas obtained!");    
+            if (ninjas !== null) {
+                console.log(ninjas);
+            }
+        }).catch(e => fail("Shouldn't be here: " + e));
+    </script>
+</body>
+
+</html>
