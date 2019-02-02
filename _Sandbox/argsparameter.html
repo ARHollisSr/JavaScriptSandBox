@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Arguments Parameter example</title>
-c
+    c
 </head>
+
 <body>
     <script>
-        function whatever (a, b, c) {
-        assert(a === 1, 'The value of a is 1');
-        assert(b === 2, 'The value of b is 2');
-        assert(c === 3, 'The value of c is 3');
-        assert(arguments.length === 5, "We've passed in 5 parameters.")
-        assert(arguments[0] === a, "First arg assigned to a");
-        assert(arguments[1] === b, "Second arg assigned to b");
-        assert(arguments[2] === c, "Third arg assigned to c");
-        assert(arguments[3] === 4, "Fourth arg can be be accessed");
-        assert(arguments[4] === 5, "Fifth arg can be be accessed");
+        /*global assert */
+
+        function whatever(a, b, c) {
+            assert(a === 1, "The value of a is 1");
+            assert(b === 2, "The value of b is 2");
+            assert(c === 3, "The value of c is 3");
+            assert(arguments.length === 5, "We've passed in 5 parameters.");
+            assert(arguments[0] === a, "First arg assigned to a");
+            assert(arguments[1] === b, "Second arg assigned to b");
+            assert(arguments[2] === c, "Third arg assigned to c");
+            assert(arguments[3] === 4, "Fourth arg can be be accessed");
+            assert(arguments[4] === 5, "Fifth arg can be be accessed");
         }
-        whatever(1,2,3,4,5);
+        whatever(1, 2, 3, 4, 5);
     </script>
-    
+
 </body>
+
 </html>
