@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+<body>
+    <script>
+        function* IdGenerator() {
+            let id = 0;
+            while (true) {
+                yield ++id;
+            }
+        }
+
+        const idIterator = IdGenerator();
+
+        const ninja1 = { id: idIterator.next().value };
+        const ninja2 = { id: idIterator.next().value };
+        const ninja3 = { id: idIterator.next().value };
+
+        assert(ninja1.id === 1, "First ninja id = 1");
+        assert(ninja2.id === 2, "Second ninja id = 2");
+        assert(ninja3.id === 3, "Third ninja id = 3");
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+<body>
+    <script>
+        function Ninja(){}
+
+        const ninja = new Ninja();
+        const ninaj2 = new ninja.constructor(); //construct a second ninja from the first
+
+        assert(ninaj2 instanceof Ninja, "It's a Ninja!");
+        assert(ninja !== ninja2, "But not the same Ninja!");
+    </script>
+</body>
+</html>

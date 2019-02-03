@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+    <script src="src/getJSON.js"></script>
+</head>
+<body>
+    <script>
+        async(function* () {
+            try {
+                const ninjas = yield getJSON("data/ninjas.json");
+                console.log(ninjas);
+                const missions = yield getJSON(ninjas[0].missionsUrl);
+                console.log(missions);
+                const missionDescription = yield getJSON(missions[0].detailsUrl);
+                console.log(missionDescription);
+            }
+            catch (e) {
+
+            }
+        });
+
+            function async(generator) {
+                var iterator = generator();
+
+                function handle(iteratorResult) {
+                    if (iteratorResult.done) { return; }
+
+                    const iteratorValue = iteratorResult.value;
+
+                    if (iteratorValue instanceof Promise) {
+                        iteratorValue.then(res => handle(iterator.next(res)))
+                            .catch(err => iterator.throw(err));
+                    }
+                }
+                try {
+                    handle(iterator.next());
+                }
+                catch (e) { iterator.throw(e); }
+            }
+
+    </script>
+    </body>
+
+</html>

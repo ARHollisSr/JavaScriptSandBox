@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <script>
+        /*global assert*/
+        function Person() { }
+        Person.prototype.dance = function () { };
+
+        function Ninja() { }
+        Ninja.prototype = new Person();
+
+        Object.defineProperty(Ninja.prototype, "constructor", {
+            enumerable: false,
+            value: Ninja,
+            writable: true
+        });
+
+        var ninja = new Ninja();
+        assert(ninja.constructor === Ninja, "Connection from ninja instance to Ninja constructor reestablished");
+        for (let prop in Ninja.prototype) {
+            assert(prop === "dance", "The only enumerable property is dance");
+        }
+    </script>
+</body>
+
+</html>

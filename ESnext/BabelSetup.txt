@@ -1,4 +1,9 @@
 Setting up Babel and Browserify:
+//if you don't already have Browserify installed
+$ npm install browserify --global
+
+$ mkdir dist
+$ mkdir src
 $ mkdir project_name
 $ cd project_name
 $ npm init -y
@@ -31,6 +36,13 @@ Create a .bablerc file in the root of your project.
     "sourceMaps": "inline"
 }
 
+//bundle this way
+$ browserify src/index.js --transform babelify --outfile dist/bundle.js --debug
+
+//test with node
+$ node dist/bundle.js
+
+-------------------------------------------------------
 Add this to the script section of package.json
 "babel": "babel src –d dist"
 //To run

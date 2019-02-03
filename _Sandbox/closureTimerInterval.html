@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin: 5;
+            color: white;
+            font-weight: bolder;
+            background-color: rgb(33, 151, 141);
+            margin-bottom: 100px;
+        }
+        #box2 {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            margin: 5;
+            color: white;
+            font-weight: bolder;
+            background-color: rgb(116, 151, 33);
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id ="box1">First Box</div> 
+    <div id ="box2">Second Box</div>   
+        <script>
+            function animateIt(elementId) {
+                    var elem = document.getElementById(elementId);
+                    var tick = 0;
+                    var timer = setInterval(function () {
+                    if (tick < 100) {
+                        elem.style.left = elem.style.top = tick + "px";
+                        tick++;
+                    }
+                    else {
+                        clearInterval(timer);
+                        assert(tick === 100, "Tick accessed via closure.");
+                        assert(elem, "Element all accessed via closure.");
+                        assert(timer, "Timer reference also obtained via a closure.");
+                    }
+                }, 10);
+            }
+            animateIt("box1");            
+            animateIt("box2");
+        </script>
+</body>
+</html>

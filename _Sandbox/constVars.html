@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+<body>
+    <script>
+        const fireConst = "samurai";
+        assert(fireConst === "samurai", "firstConst is a samurai");
+
+        try {
+            fireConst = "ninja";
+            fail("Shouldn't be here");
+        } catch (e) {
+            pass("An exception has occured");
+        }
+
+        assert(fireConst === "samurai", "first Const is still a samuari!");
+
+        const secondConst = {};
+        secondConst.weapon = "wakizashi";
+
+        assert(secondConst.weapon === "wakizashi", "We can add new properties");
+
+        const thirdConst = [];
+
+        assert(thirdConst.length === 0, "No items in our array");
+
+        thirdConst.push("Yoshi");
+        
+        assert(thirdConst.length === 1, "The array has changed");
+    </script>
+</body>
+</html>
