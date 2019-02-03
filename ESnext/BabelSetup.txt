@@ -10,7 +10,7 @@ $ npm install --save-dev @babel/preset-env
 //version 7 way of adding Stage 0
 $ npm install --save-dev @babel/plugin-proposal-function-bind
 
-//version 7 way of adding legacy decorators
+//version 7 way of adding Legacy decorators
 $ npm install --save-dev @babel/plugin-proposal-decorators
 
 Create a .bablerc file in the root of your project.
