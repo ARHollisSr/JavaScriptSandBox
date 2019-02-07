@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+
+<body>
+    <script>
+        class Ninja {
+            constructor(name) {
+                this.name = name;
+            }
+
+            swingSword() {
+                return true;
+            }
+        }
+
+        /* Remember that Classes are just syntactic sugar:
+        
+        function Ninja(name) {
+            this.name = name;
+        }
+
+        Ninja.prototype.swingSword = function() { return true; };
+
+        */
+
+        var ninja = new Ninja("Yoshi");
+
+        assert(ninja instanceof Ninja, "Our ninja is a Ninja");
+        assert(ninja.name === "Yoshi", "named Yoshi");
+        assert(ninja.swingSword(), "and he can swing a sword");
+    </script>
+</body>
+
+</html>
