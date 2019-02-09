@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../lib/Ninja/assert.css">
+    <script src="../lib/Ninja/assert.js"></script>
+</head>
+<body>
+    <script>
+        function Ninja() {
+            let _skillLevel = 0;
+
+            Object.defineProperty(this, 'skillLevel', {
+                get: ()=> {
+                    report("The get method is called");
+                    return _skillLevel;
+                },
+                set: value => {
+                    report("The set method is called");
+                    _skillLevel = value;
+                }
+            });
+        }
+        const ninja = new Ninja();
+        assert(typeof ninja._skillLevel === "undefined", "We cannot access a private property");
+        assert(ninja.skillLevel === 0, "The getter works fine!");
+        ninja.skillLevel = 10;
+        assert(ninja.skillLevel === 10, "The value was updated");
+    </script>
+</body>
+</html>
