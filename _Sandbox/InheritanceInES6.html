@@ -20,7 +20,6 @@
                 return true;
             }
         }
-
         class Ninja extends Person {
             constructor(name, weapon) {
                 super(name);
@@ -32,7 +31,6 @@
         }
 
         var person = new Person("Bob");
-
         assert(person instanceof Person, "A person's a person");
         assert(person.dance(), "A person can dance");
         assert(person.name === "Bob", "We can call it by name");
